@@ -6,8 +6,8 @@ const Customer = require('../models/customerModel');
 // @access public
 
 const registerCustomer = asyncHandler(async (req, res) => {
-	const { customerName, customerEmail,customerPhone, location,orderId } = req.body;
-	if (!customerName|| !customerEmail || !customerPhone || !location || !orderId ) {
+	const { customerName, customerEmail,customerPhone,customerBalance, location} = req.body;
+	if (!customerName|| !customerEmail || !customerPhone || !location || !customerBalance ) {
 		res.status(400);
 		throw new Error('please add all fields');
 	}
@@ -26,7 +26,8 @@ const registerCustomer = asyncHandler(async (req, res) => {
         customerEmail,
         customerPhone,
         location,
-        orderId 
+		customerBalance,
+     
 	});
 	if (customer) {
 		res.status(201).json({
@@ -35,7 +36,7 @@ const registerCustomer = asyncHandler(async (req, res) => {
             customerEmail: customer.customerEmail,
             customerPhone:customer.customerPhone,
 			location: customer.location,
-			orderId: customer.orderId,
+			customerBalance: customer.customerBalance,
 		
 		});
 	} else {

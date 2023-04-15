@@ -6,13 +6,19 @@ const orderSchema = mongoose.Schema({
         required:[true,'please add  order number']
     },
     customerId: {
-         type: mongoose.Schema.Types.ObjectId, 
-            required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        required: [true,"please add customer id"],
             ref: 'Customer'
     },
-    totalPrice: {
-        type: Number,
-        required:[true , 'please add total price'],
+    items: {
+         type: [
+      {
+        itemName: { type: String, required: true },
+        quantity: { type: Number, required: true },
+        sellingPrice: { type: Number, required: true },
+        unit: { type:String, required: true },
+      },
+    ],
  
     },
     paidAmount: {
@@ -27,6 +33,11 @@ const orderSchema = mongoose.Schema({
     },
     orderStatus: {
         type: Boolean,
+        required:[true , 'please add order status'],
+        
+    },
+    issuedBy: {
+        type: String,
         required:[true , 'please add order status'],
         
     }

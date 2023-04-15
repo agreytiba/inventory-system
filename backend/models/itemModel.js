@@ -12,14 +12,24 @@ const itemSchema = mongoose.Schema({
      
       
     },
+    itemUnit: {
+        type: String,
+        required: [true, 'please add measurement of item'],
+     
+      
+    },
     itemQuantity: {
         type: Number,
         required:[true , 'please add  quantity'],
  
     },
-    itemPrice: {
+    itemCost: {
         type: Number,
-        required:[true , 'please add  paid amount'],
+        required:[true , 'please add  cost '],
+    },
+    itemSellingPrice: {
+        type: Number,
+        required:[true , 'please add  paid selling price'],
     },
 
     itemDiscount: {

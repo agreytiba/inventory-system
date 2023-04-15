@@ -15,17 +15,17 @@ const customerSchema = mongoose.Schema({
         required:[true , 'please add customer phone number'],
  
     },
+    customerBalance: {
+        type: Number,
+        required:[true , 'please add customer Balance'],
+ 
+    },
     location: {
         type: String,
         required:[true , 'please add  customer location'],
     },
 
-    orderId: {
-         type:[mongoose.Schema.Types.ObjectId ],
-            required: true,
-            ref: 'Order'
-        
-    }
+
 },{
     timestamps:true
 })
