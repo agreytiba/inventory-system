@@ -8,7 +8,7 @@ const itemSchema = mongoose.Schema({
     },
     itemDesc: {
         type: String,
-        required: [true, 'please add measurement of item'],
+        required: [true, 'please add desc of item'],
      
       
     },
@@ -27,14 +27,32 @@ const itemSchema = mongoose.Schema({
         type: Number,
         required:[true , 'please add  cost '],
     },
+    costAcc: {
+        type: Number,
+        default:0
+    },
     itemSellingPrice: {
         type: Number,
         required:[true , 'please add  paid selling price'],
     },
+    sellingAcc:{
+       type:Number,
+       default:0
+    },
 
     itemDiscount: {
         type:Number,
-        required: [true, 'please add discount'],
+       
+        default: 0
+        
+    },
+    itemTax: {
+        type:Number,
+        default: 0
+        
+    },
+    itemCategories: {
+        type:String,
         default: 0
         
     },

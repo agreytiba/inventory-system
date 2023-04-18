@@ -5,7 +5,7 @@ const Item =require('../models/itemModel')
 // @route GET /api/items
 // @access private
 const getItems =asyncHandler( async(req,res)=>{
-  const items = await Item.find()
+    const items = await Item.find()
     res.status(200).json(items)
 }
 ) 
@@ -54,9 +54,11 @@ const updateItem =asyncHandler( async(req,res)=>{
 // @route DELETE /api/items/:id
 // @access private
 
-//the code not working (need to be rectified)
 const deleteItem = asyncHandler( async(req,res)=>{
-    const item = await Item.findById(req.params.id)
+    const item = await Item.findByIdAndDelete(req.params.id)
+
+   
+     res.status(200).json("successful delete")
 
     // // check for the item
     // if(!item){
@@ -76,7 +78,6 @@ const deleteItem = asyncHandler( async(req,res)=>{
     //     res.status(401)
     //     throw new Error('user not authorized')
     // }
-    await item.remove()
-    res.status(200).json({id: req.params.id})
+ 
 })
 module.exports ={getItems,setItem,updateItem,deleteItem}

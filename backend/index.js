@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 
 // use to change default error handler
-// app.use(errorHandler)
+app.use(errorHandler)
 
 // set the home route
 app.use('/api/users', require('./routes/userRoutes'))
